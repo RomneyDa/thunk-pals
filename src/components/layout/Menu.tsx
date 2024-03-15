@@ -22,7 +22,7 @@ const Menu = () => {
     return (
         <nav>
             <div className="p-4 hidden lg:flex flex-row items-center gap-6 font-semibold">
-                <Link href="#benefits" className="nav-link" scroll>Benefits</Link>
+                <Link scroll={false} href="#benefits" className="nav-link">Benefits</Link>
                 <Link href="#recent-work" className="nav-link" scroll>Recent work</Link>
                 <Link href="#compare-us" className="nav-link" scroll>Compare us</Link>
                 <Link href="#pricing" className="nav-link" scroll>Pricing</Link>

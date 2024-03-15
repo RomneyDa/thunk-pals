@@ -27,11 +27,6 @@ export default function RootLayout({
           "overflow-auto no-scrollbar min-h-screen max-w-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
-
-      // onScroll={(e) => {
-      //   console.log(0)
-      //   // setScrollPosition(e.currentTarget.scrollTop);
-      // }}
       >
         {children}
       </body>

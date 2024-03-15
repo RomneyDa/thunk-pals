@@ -2,14 +2,14 @@
 import Menu from "@/components/layout/Menu";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MovingTilesTestimonials from "@/components/home/Testimonials";
 import { recentWork } from "@/components/home/recent-work";
 import FAQs from "@/components/home/FAQs";
 import PrivacyPolicy from "@/components/home/PrivacyPolicy";
 import TermsOfService from "@/components/home/TermsOfService";
 import { ArrowDownIcon } from "@radix-ui/react-icons";
-import { CheckIcon, EqualIcon, XIcon } from "lucide-react";
+import { CheckIcon, ChevronUp, EqualIcon, XIcon } from "lucide-react";
 
 const CALENDLY_LINK = "https://calendly.com/insightpal/intro"
 const STRIPE_LINK = "https://checkout.stripe.com/c/pay/cs_live_b1tk14B8kf434xvP5fPPYldu0nd01RDesDvLIlje1cEZdHPST4TDlufsE5#fid2cGd2ZndsdXFsamtQa2x0cGBrYHZ2QGtkZ2lgYSc%2FY2RpdmApJ3Zxd2x1YERmZmpwa3EnPydkZmZxWjRKN0NAckRhZ2Rfa01gbmAnKSdkdWxOYHwnPyd1blppbHNgWjA0S0FKN0BGXTVOMHNGUWl9M1I9M0sxPVdcaDBAMzVqQ391ZlxgSk5qYHZvcz1scWNvbHxvPX9cMmRUakRMMUNuYH1PTX9mPVB%2FZkFwUzBzMkpjdmRWfHdvNTVHYmRTSzN2fScpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPydocGlxbFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl"
@@ -20,11 +20,6 @@ const ViewPlansButton = () => (
   <Link href="#pricing" scroll={true}
     className="text-center rounded-full px-[40px] py-[20px] ring-accent hover:ring-[4px] transition-all duration-300 bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground font-bold text-lg"
   >View Plans</Link>
-)
-const CalendlyLink = () => (
-  <Link href={CALENDLY_LINK}
-    className="text-primary hover:text-secondary underline"
-  >Book a call</Link>
 )
 
 const YellowX = () => {
@@ -46,12 +41,42 @@ const GreenCheck = () => {
 export default function Home() {
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+  const [scrollDiff, setScrollDiff] = useState(100);
+
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const change = scrollPosition - prevScrollPosition;
+    setPrevScrollPosition(scrollPosition);
+
+    const newVal = scrollDiff + change;
+    const newScrollDiff = newVal > 100 ? 100 : newVal < 0 ? 0 : newVal;
+
+    if (newScrollDiff === scrollDiff) return;
+    setScrollDiff(newScrollDiff);
+
+    // if (scrollDiff >= 100 && change > 0) return setScrollDiff(100)
+    // if (scrollDiff <= 0 && change < 0) return setScrollDiff(0)
+    // setScrollDiff(scrollDiff + change > 100 ? 100 : scrollDiff + change < 0 ? 0 : scrollDiff + change)
+
+    // if (scrollDiff < 0 && change > 0) setScrollDiff(change)
+    // else if (scrollDiff > 0 && change < 0) setScrollDiff(change)
+    // else setScrollDiff((d) => d + change)
+    // setScrollDiff(scrollDiff + change)
+
+  }, [scrollPosition])
+
+  // useEffect(() => {
+  //   console.log(scrollDiff)
+  // }, [scrollDiff])
+
   return (
     <>
       <header className="bg-background fixed left-0 top-0 flex w-full justify-between p-4 z-50"
         style={{
-          transform: `translateY(${scrollPosition < 30 ? 0 : 30 - scrollPosition}px)`,
-          opacity: `${scrollPosition < 30 ? 1 : 1 - (scrollPosition - 30) / 100}`
+          transform: `translateY(${scrollDiff < 30 ? 0 : 30 - scrollDiff}px)`,
+          opacity: `${scrollDiff < 30 ? 1 : 1 - (scrollDiff - 30) / 100}`
         }}
       >
         <h1 className="p-5 font-bold text-lg transition-all duration-300 hover:text-xl cursor-pointer text-center">thunkpal</h1>
@@ -62,6 +87,7 @@ export default function Home() {
           // console.log(scrollPosition)
           setScrollPosition(e.currentTarget.scrollTop);
         }}
+        ref={mainRef}
       >
         <section id="intro" className="pt-32 w-full px-12 leading-tight 
         -[1000px] flex flex-col items-center justify-center text-center">
@@ -341,7 +367,15 @@ export default function Home() {
         </footer>
         <br />
       </main>
-
+      <div className="absolute bottom-4 right-4 h-12 w-12 bg-accent rounded-full flex items-center justify-center opacity-90 cursor-pointer" style={{
+        transform: `translateY(${100 - scrollDiff + Math.max(300 - scrollPosition, 0)}px)`,
+      }}
+        onClick={() => {
+          mainRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
+        <ChevronUp height={30} width={30} strokeWidth={4} color="hsl(var(--primary))" />
+      </div>
     </>
   );
 }
