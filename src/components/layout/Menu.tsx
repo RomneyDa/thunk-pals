@@ -22,13 +22,13 @@ const Menu = () => {
     return (
         <nav>
             <div className="p-4 hidden lg:flex flex-row items-center gap-6 font-semibold">
-                <Link scroll={false} href="#benefits" className="nav-link">Benefits</Link>
-                <Link href="#recent-work" className="nav-link" scroll>Recent work</Link>
-                <Link href="#compare-us" className="nav-link" scroll>Compare us</Link>
-                <Link href="#pricing" className="nav-link" scroll>Pricing</Link>
-                <Link href="#faqs" className="nav-link" scroll>FAQs</Link>
-                <Link target="_blank" href={BREEEW_LINK} className="nav-link" scroll>Log in</Link>
-                <Link className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]" href="#pricing">View Plans</Link>
+                <Link href="#benefits" className="nav-link">Benefits</Link>
+                <Link href="#recent-work" className="nav-link">Recent work</Link>
+                <Link href="#compare-us" className="nav-link">Compare us</Link>
+                <Link href="#pricing" className="nav-link">Pricing</Link>
+                <Link href="#faqs" className="nav-link">FAQs</Link>
+                <Link target="_blank" href={BREEEW_LINK} className="nav-link">Log in</Link>
+                <Link href="#pricing" className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]">View Plans</Link>
             </div>
             <Popover open={showMenu} onOpenChange={setShowMenu}>
                 <PopoverTrigger asChild>
@@ -46,6 +46,8 @@ const Menu = () => {
                     <Link onClick={hideMenu} href="#pricing" className="font-semibold text-md hover:text-muted-foreground">Pricing</Link>
                     <Link onClick={hideMenu} href="#faqs" className="font-semibold text-md hover:text-muted-foreground">FAQs</Link>
                     <Link onClick={hideMenu} href="#log-in" className="font-semibold text-md hover:text-muted-foreground">Log in</Link>
+                    <Link onClick={hideMenu} href="#pricing" className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]">View Plans</Link>
+
                 </PopoverContent>
             </Popover>
         </nav>
