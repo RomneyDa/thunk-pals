@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
-import { MenuIcon } from 'lucide-react';
+import { ArrowRight, MenuIcon } from 'lucide-react';
 import {
     Popover,
     PopoverContent,
@@ -28,7 +28,7 @@ const Menu = () => {
                 <Link href="#pricing" className="nav-link" scroll>Pricing</Link>
                 <Link href="#faqs" className="nav-link" scroll>FAQs</Link>
                 <Link target="_blank" href={BREEEW_LINK} className="nav-link" scroll>Log in</Link>
-                <Link className="p-2 border-border rounded-full" href="#pricing">View Plans</Link>
+                <Link className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]" href="#pricing">View Plans</Link>
             </div>
             <Popover open={showMenu} onOpenChange={setShowMenu}>
                 <PopoverTrigger asChild>
