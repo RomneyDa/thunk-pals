@@ -292,7 +292,7 @@ export default function Home() {
               <div className="mt-3 border-b border-card-foreground/40 h-[1px] w-full" />
               <h2 className="text-4xl font-bold mx-5 mt-2">$2,995<span className="text-3xl">/mo</span></h2>
               <p className="text-md font-semibold text-muted-foreground mx-5">Pause or cancel anytime.</p>
-              <Link href={STRIPE_LINK} className="mx-5 self-center mt-4 bg-accent text-accent-foreground text-lg font-bold p-4 px-10 rounded-full">Get started</Link>
+              <Link href={STRIPE_LINK} target="_blank" className="mx-5 self-center mt-4 bg-accent text-accent-foreground text-lg font-bold p-4 px-10 rounded-full">Get started</Link>
               <Link href={CALENDLY_LINK} target="_blank" className="self-center my-3 font-semibold underline hover:text-primary text-primary-foreground">Book a call</Link>
               <div className="ml-2 flex flex-col gap-4 mt-2">
                 <h3 className="font-bold text-md">Includes</h3>
@@ -312,7 +312,7 @@ export default function Home() {
               <div className="mt-3 border-b border-card-foreground/40 h-[1px] w-full" />
               <h2 className="text-4xl font-bold mx-5 mt-2">$5,995<span className="text-3xl">/mo</span></h2>
               <p className="text-md font-semibold text-muted-foreground mx-5">Pause or cancel anytime.</p>
-              <Link href={STRIPE_LINK} className="mx-5 self-center mt-4 bg-accent text-accent-foreground text-lg font-bold p-4 px-10 rounded-full">Get started</Link>
+              <Link href={STRIPE_LINK} target="_blank" className="mx-5 self-center mt-4 bg-accent text-accent-foreground text-lg font-bold p-4 px-10 rounded-full">Get started</Link>
               <Link href={CALENDLY_LINK} target="_blank" className="self-center my-3 font-semibold underline hover:text-primary text-primary-foreground">Book a call</Link>
               <div className="ml-2 flex flex-col gap-4 mt-2">
                 <h3 className="font-bold text-md">Includes</h3>
@@ -329,7 +329,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="faqs" className="pt-32 w-full px-8 max-w-[1100px]">
+        <section id="the-faqs" className="pt-32 w-full px-8 max-w-[1100px]">
           <h1 className="text-left flex-1 border-b text-3xl font-bold mb-4">Frequently Asked Questions</h1>
           <FAQs />
           <div className="flex flex-row items-center justify-center px-12">
@@ -353,7 +353,7 @@ export default function Home() {
           <div className="flex flex-col gap-3 min-w-[150px]">
             <Link href="#benefits" className="text-primary-foreground font-semibold text-sm" >Benefits</Link>
             <Link href="#compare-us" className="text-primary-foreground font-semibold text-sm">Compare us</Link>
-            <Link href="#faqs" className="text-primary-foreground font-semibold text-sm">FAQs</Link>
+            <Link href="#the-faqs" className="text-primary-foreground font-semibold text-sm">FAQs</Link>
           </div>
           <div className="flex flex-col gap-3 min-w-[150px]">
             <Link href="#recent-work" className="text-primary-foreground font-semibold text-sm">Recent work</Link>

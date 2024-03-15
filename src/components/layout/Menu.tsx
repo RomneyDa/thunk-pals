@@ -26,7 +26,7 @@ const Menu = () => {
                 <Link href="#recent-work" className="nav-link">Recent work</Link>
                 <Link href="#compare-us" className="nav-link">Compare us</Link>
                 <Link href="#pricing" className="nav-link">Pricing</Link>
-                <Link href="#faqs" className="nav-link">FAQs</Link>
+                <Link href="#the-faqs" className="nav-link">FAQs</Link>
                 <Link target="_blank" href={BREEEW_LINK} className="nav-link">Log in</Link>
                 <Link href="#pricing" className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]">View Plans</Link>
             </div>
@@ -44,8 +44,9 @@ const Menu = () => {
                     <Link onClick={hideMenu} href="#recent-work" className="font-semibold text-md hover:text-muted-foreground">Recent work</Link>
                     <Link onClick={hideMenu} href="#compare-us" className="font-semibold text-md hover:text-muted-foreground">Compare us</Link>
                     <Link onClick={hideMenu} href="#pricing" className="font-semibold text-md hover:text-muted-foreground">Pricing</Link>
-                    <Link onClick={hideMenu} href="#faqs" className="font-semibold text-md hover:text-muted-foreground">FAQs</Link>
-                    <Link onClick={hideMenu} href="#log-in" className="font-semibold text-md hover:text-muted-foreground">Log in</Link>
+                    <Link onClick={hideMenu} href="#the-faqs" className="font-semibold text-md hover:text-muted-foreground">FAQs</Link>
+                    {/* <Link target="_blank" href={BREEEW_LINK} className="font-semibold text-md hover:text-muted-foreground">Log in</Link> */}
+                    <Link onClick={hideMenu} target="_blank" href={BREEEW_LINK} className="font-semibold text-md hover:text-muted-foreground">Log in</Link>
                     <Link onClick={hideMenu} href="#pricing" className="p-2 bg-primary text-primary-foreground px-7 border-border rounded-full flex flex-row gap-2 hover:bg-accent hover:text-accent-foreground transition-all ring-accent hover:ring-[5px]">View Plans</Link>
 
                 </PopoverContent>
