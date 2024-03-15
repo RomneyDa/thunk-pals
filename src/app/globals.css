@@ -138,12 +138,24 @@
 }
 
 .testimonial-flow {
-    animation: testimonial 150s infinite;
+    animation: testimonial 90s infinite;
 }
 .testimonial-flow-reverse {
-    animation: testimonial 145s infinite reverse;
+    animation: testimonial 85s infinite reverse;
 }
 
 .recent-work-flow {
-    animation: testimonial 30s infinite;
+    animation: testimonial 10s infinite;
+}
+
+@media screen and (max-width: 800px) {
+    .recent-work-flow {
+        animation: testimonial 30s infinite;
+    }
+    .testimonial-flow {
+        animation: testimonial 150s infinite;
+    }
+    .testimonial-flow-reverse {
+        animation: testimonial 145s infinite reverse;
+    }
 }

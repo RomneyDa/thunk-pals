@@ -42,7 +42,7 @@ export default function Home() {
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
-  const [scrollDiff, setScrollDiff] = useState(100);
+  const [scrollDiff, setScrollDiff] = useState(0);
 
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -164,7 +164,7 @@ export default function Home() {
           {/* Moving tiles testimonials section */}
           <MovingTilesTestimonials />
           {/* How can we help section */}
-          <div className="pt-24 pl-12 pr-8">
+          <div className="pt-24 pl-12 pr-8 max-w-[1100px]">
             <h2 className="font-bold text-2xl">How can we help?</h2>
             <div className="flex flex-row mt-5 flex-wrap">
               <div className="flex-1 flex flex-col gap-2 min-w-[200px]">
@@ -196,7 +196,7 @@ export default function Home() {
           </div>
           <Image className="mt-16 mb-16" src={"/images/streak.png"} height={100} width={10} alt="streak" />
           {/* How it works  */}
-          <div className="pr-8 pl-2">
+          <div className="pr-8 pl-2 max-w-[1100px]">
             <div className="flex flex-row mt-5 flex-wrap">
               <div className="flex-1 p-4 pt-16 min-w-[350px]">
                 <div className="rounded-[40px] bg-card pb-8 pt-20 px-8 flex flex-col">
@@ -227,11 +227,11 @@ export default function Home() {
           </div>
         </section>
         <Image className="translate-y-1/2" src={"/images/streak.png"} height={100} width={10} alt="streak" />
-        <section id="compare-us" className="pt-32 px-8 pb-24 w-full bg-card">
+        <section id="compare-us" className="pt-32 px-8 pb-24 w-full bg-card max-w-[1100px]">
           <h1 className="text-center font-bold text-3xl">A quick comparison.</h1>
           <h2 className="mt-1 text-center text-muted-foreground text-lg font-semibold">We think the  numbers speak for themselves.</h2>
           <div className="flex flex-row mt-12 gap-5 items-start flex-wrap justify-center">
-            <div className="flex flex-col rounded-[20px] bg-secondary p-4 gap-3 min-w-[200px] max-w-[350px] flex-1">
+            <div className="flex flex-col rounded-[20px] bg-secondary p-4 gap-3 min-w-[200px] max-w-[375px] flex-1">
               <h2 className="text-lg font-bold text-primary-foreground">Full-Time Data Analyst</h2>
               <p className="text-sm font-semibold text-muted-foreground">Monthly Costs:</p>
               <p className="text-sm font-semibold text-muted-foreground flex flex-row gap-2 items-center"><YellowX />Salary - $6,000</p>
@@ -244,7 +244,7 @@ export default function Home() {
               <p className="text-sm font-semibold text-muted-foreground flex flex-row gap-2 items-center"><YellowX />Onboarding - $1,000</p>
               <p className="text-sm font-semibold text-muted-foreground flex flex-row gap-2 items-center"><YellowX />Training - $1,500</p>
               <p className="text-sm font-semibold text-muted-foreground flex flex-row gap-2 items-center border-b pb-2 mb-1"><YellowX />Equipment - $2,500</p>
-              <p className="text-md font-semibold text-primary-foreground flex flex-row gap-2 items-center"><span className="bg-yellow-300 h-6 w-6 p-1 rounded-full flex items-center justify-center">
+              <p className="text-md font-semibold text-primary-foreground flex flex-row gap-2 items-center whitespace-nowrap"><span className="bg-yellow-300 h-6 w-6 p-1 rounded-full flex items-center justify-center">
                 <EqualIcon strokeWidth={4} />
               </span>$7,965/month + $7,000 Added Costs</p>
             </div>
@@ -280,12 +280,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="w-full pt-8">
+        <section id="pricing" className="w-full pt-8 max-w-[1100px]">
           <Image src={"/images/down-arrow.png"} height={100} width={40} alt="arrow" className="mx-auto" />
 
           <h1 className="text-4xl font-bold text-center mt-4">Pricing Plans</h1>
           <div className="flex flex-row flex-wrap gap-6 mx-12">
-            <div className="flex-1 flex flex-col min-w-[200px] rounded-[35px] bg-secondary items-start pb-16 mt-6">
+            <div className="flex-1 flex flex-col min-w-[250px] rounded-[35px] bg-secondary items-start pb-16 mt-6 pr-2">
               <p className="text-sm font-bold px-3 py-[1px] mx-5 mt-5 bg-primary rounded-full"><span className="text-lg">2</span> SPOTS LEFT</p>
               <h2 className="text-3xl font-bold mx-5">Viz Only</h2>
               <p className="text-md font-semibold text-muted-foreground mx-5">BYOD (Bring Your Own Data), we make it useful.</p>
@@ -305,7 +305,7 @@ export default function Home() {
                 <p className="ml-2 font-bold text-md flex flex-row gap-2"><GreenCheck />Pause or cancel anytime</p>
               </div>
             </div>
-            <div className="flex-1 flex flex-col min-w-[200px] rounded-[35px] bg-secondary items-start pb-16 mt-6">
+            <div className="flex-1 flex flex-col min-w-[250px] rounded-[35px] bg-secondary items-start pb-16 mt-6 pr-2">
               <p className="text-sm font-bold px-3 py-[1px] mx-5 mt-5 bg-primary rounded-full"><span className="text-lg">1</span> SPOT LEFT</p>
               <h2 className="text-3xl font-bold mx-5 leading-tight">Viz + Data Management</h2>
               <p className="text-md font-semibold text-muted-foreground mx-5">{`We'll sync all your data to one place & make it useful.`}</p>
@@ -329,7 +329,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="faqs" className="pt-32 w-full px-8">
+        <section id="faqs" className="pt-32 w-full px-8 max-w-[1100px]">
           <h1 className="text-left flex-1 border-b text-3xl font-bold mb-4">Frequently Asked Questions</h1>
           <FAQs />
           <div className="flex flex-row items-center justify-center px-12">
@@ -344,7 +344,7 @@ export default function Home() {
         </section>
         <section id="log-in" className="pt-32 w-full">
         </section>
-        <footer className="flex flex-row w-full p-4 gap-x-10 gap-y-4 flex-wrap">
+        <footer className="flex flex-row w-full p-4 gap-x-10 gap-y-4 flex-wrap justify-center">
           <div className="flex flex-col gap-3 min-w-[150px]">
             <Image className="-ml-3" src={"/images/logo.png"} height={20} width={120} alt="thunkpal" />
             <p className="text-muted-foreground font-semibold text-sm">{`© ${(new Date()).getFullYear()} thunkpal, LLC`}</p>
